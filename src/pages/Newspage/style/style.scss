@@ -1,0 +1,70 @@
+@import "../../../styledGlobal/sass/typography.scss";
+
+.newsheader-inside {
+  position: absolute;
+  top: 0;
+  object-fit: cover;
+  bottom: 0;
+}
+
+.small-title {
+  font-size: 1.2rem !important;
+  color: #fff !important;
+  font-weight: 400 !important;
+  margin-bottom: 0.3rem !important;
+}
+
+.heading {
+  font-size: 2.4rem !important;
+  color: #fff !important;
+  font-weight: 500 !important;
+  margin-top: 0.3rem !important;
+}
+
+.newssectioncard {
+  margin: 0 auto;
+  width: 80%;
+  a {
+    display: flex;
+  }
+  .title {
+    font-weight: 600;
+    font-family: $poppins;
+    margin-bottom: 1.2rem;
+    font-size: 1.5rem !important;
+  }
+  .space {
+    margin-bottom: 1rem;
+    span {
+      font-weight: 500;
+    }
+  }
+}
+
+.newstitle {
+  font-size: 1.4rem !important;
+}
+
+.description {
+  margin: 1.5rem 0;
+}
+
+@media (max-width: 1199px) {
+  .newssectioncard {
+    width: 90%;
+  }
+}
+
+@media (max-width: 767px) {
+  .newssectioncard {
+    .ant-card-body {
+      padding: unset;
+    }
+    a {
+      flex-direction: column;
+    }
+    .title {
+      margin-bottom: 0.8rem;
+    }
+  }
+}

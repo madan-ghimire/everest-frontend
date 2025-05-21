@@ -1,0 +1,18 @@
+@import "./typography.scss";
+
+body,
+html {
+  font-size: 18px;
+  line-height: 1.6;
+  font-family: $roboto;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+// for antd carousel
+.ant-carousel .slick-dots {
+  z-index: 1 !important;
+}

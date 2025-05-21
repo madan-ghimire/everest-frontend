@@ -1,0 +1,16 @@
+.newsheader-inside {
+  position: absolute;
+  top: 0;
+  object-fit: cover;
+  bottom: 0;
+}
+
+.paragraph {
+  color: #4e4e4e;
+  font-size: 0.9rem;
+  font-family: "poppins", sans-serif;
+  &-aboutsection {
+    padding: 4rem;
+    color: #fff;
+  }
+}

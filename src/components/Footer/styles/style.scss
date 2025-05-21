@@ -1,0 +1,52 @@
+.footer {
+  &-title {
+    color: #fff !important;
+    font-size: 1rem !important;
+    font-weight: 500 !important;
+    font-family: "poppins", sans-serif;
+    position: relative;
+    margin-top: 1rem;
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -14px;
+      width: 40px;
+      background: #5188bb;
+      height: 4px;
+      left: 0;
+    }
+  }
+  &-links {
+    display: block !important;
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+    color: #8d8d8d !important;
+    transition: all 350ms ease;
+    &:hover {
+      color: #eee !important;
+    }
+    a {
+      color: #8d8d8d !important;
+      &:hover {
+        color: #eee !important;
+      }
+    }
+  }
+}
+
+.sociallink {
+  background: #eee;
+  padding: 0.3rem 0.3rem;
+  border-radius: 50%;
+  justify-content: center;
+  display: flex;
+}
+
+.footcopy {
+  color: #8d8d8d;
+  font-size: 0.9rem;
+  text-align: center;
+  a {
+    color: #8d8d8d;
+  }
+}

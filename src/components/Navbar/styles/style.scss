@@ -1,0 +1,44 @@
+@import "../../../styledGlobal//sass//typography.scss";
+
+.navlink {
+  font-size: 1rem;
+  margin-left: 1.5rem;
+  color: #000;
+  font-weight: 500;
+  font-family: $poppins;
+  padding-bottom: 1.5rem;
+  cursor: pointer;
+}
+
+.mobile {
+  .navlink {
+    display: flex;
+    align-items: center;
+    span {
+      margin-left: 0.5rem;
+    }
+  }
+}
+.ant-drawer-close {
+  color: #fff;
+}
+.ant-drawer-body {
+  background: #3f9be5;
+  padding-top: 3rem;
+  .navlink {
+    color: #fff;
+  }
+}
+
+@media (max-width: 492px) {
+  .mobilestyle {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.ant-dropdown-menu-item {
+  a {
+    font-family: $poppins;
+  }
+}

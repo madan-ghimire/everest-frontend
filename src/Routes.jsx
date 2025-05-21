@@ -1,0 +1,11 @@
+export const Homepage = "/";
+export const Contactpage = "/contact";
+export const Newspage = "/events";
+export const Newsdetailpage = "/news/:id";
+export const Coursepage = "/course/:id";
+export const Admission = "/admission";
+export const Aboutpage = "/about/college";
+export const Aboutprincipal = "/about/principal";
+export const Aboutmission = "/about/mission";
+export const Gallerypage = "/gallery";
+export const Admissionform = "/admission/form";

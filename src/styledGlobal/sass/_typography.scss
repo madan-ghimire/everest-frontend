@@ -1,0 +1,42 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;500&display=swap");
+
+$poppins: "Poppins", sans-serif;
+$roboto: "Roboto", sans-serif;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 500 !important;
+}
+
+.small-title {
+  font-size: 1.2rem !important;
+  color: #ffe460 !important;
+  font-weight: 500 !important;
+  margin-bottom: 0.3rem !important;
+}
+
+.heading {
+  font-size: 2.4rem !important;
+  color: #fff !important;
+  font-weight: 500 !important;
+  margin-top: 0.3rem !important;
+}
+// in antd almost fonts are declared in fontweight of 600 so try to implement 500 if possible.
+$fontWeight: (
+  'light': 300,
+  'normal': 400,
+  'medium': 500,
+  'semibold': 600,
+  'bold': 700,
+  'heavy': 900,
+);
+
+$fontCase: (
+  'uppercase': uppercase,
+  'lowercase': lowercase,
+  'capitalized': capitalize,
+);

@@ -1,0 +1,74 @@
+.ant-form {
+  width: 60%;
+  padding-right: 1rem;
+  padding: 2rem 1rem;
+  label {
+    font-weight: 500;
+  }
+  .ant-input {
+    background: #eee;
+    border: unset;
+    height: 40px;
+  }
+}
+
+.location {
+  path {
+    stroke: #eee;
+  }
+}
+
+.contact-btn {
+  background: #0281d6;
+  border: 1px solid #0281d6;
+  width: 30%;
+  height: 45px;
+  font-size: 0.9rem;
+}
+
+.contact-list {
+  padding-top: 2rem;
+}
+
+.contact-box {
+  background: #fff;
+  box-shadow: 0px 4px 9px 0px #c8c8c854;
+  border-radius: 0.3rem;
+  overflow: hidden;
+  width: 60%;
+}
+
+@media (max-width: 1599px) {
+  .contact-box {
+    width: 70%;
+  }
+}
+
+@media (max-width: 1400px) {
+  .ant-form {
+    width: 50%;
+  }
+  .contact-btn {
+    width: 50%;
+  }
+}
+
+@media (max-width: 991px) {
+  .ant-form {
+    width: 100%;
+  }
+  .contact-box {
+    width: 90%;
+  }
+}
+
+@media (max-width: 576px) {
+  .contact {
+    &-box {
+      width: 100%;
+    }
+    &-btn {
+      width: 100%;
+    }
+  }
+}

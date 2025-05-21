@@ -1,0 +1,24 @@
+.newsheader-inside {
+  position: absolute;
+  top: 0;
+  object-fit: cover;
+  width: 100%;
+  bottom: 0;
+}
+
+.admissionbtn {
+  background: #fff;
+  color: #2f2f2f;
+}
+
+.admission-title {
+  font-weight: 500 !important;
+  border-bottom: 1px solid #fff;
+  padding-bottom: 1rem;
+}
+
+.ant-form {
+  &.label {
+    font-weight: 500 !important;
+  }
+}
