@@ -3,6 +3,8 @@ import React from "react";
 import { Container } from "../../styledGlobal/container";
 import { Foot, Footlogo, Footlist, Footcopy } from "./styles/style";
 import { GrFacebookOption } from "react-icons/gr";
+import { MailOutlined, PhoneFilled } from "@ant-design/icons";
+
 import { AiFillYoutube } from "react-icons/ai";
 import { NavLink } from "react-router-dom";
 import logo from "../../assets/logo.jpeg";
@@ -14,7 +16,7 @@ const Footer = () => {
     <Foot>
       <Container>
         <Row style={{ width: "100%" }}>
-          <Col lg={6} md={6} sm={12} xs={24} >
+          <Col lg={6} md={6} sm={12} xs={24}>
             <Footlogo>
               <NavLink to="/">
                 <img
@@ -25,15 +27,25 @@ const Footer = () => {
               </NavLink>
             </Footlogo>
             <Space size={12}>
-              <a href="https://www.fb.com" className="sociallink">
+              <a
+                href="https://www.fb.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="sociallink"
+              >
                 <GrFacebookOption />
               </a>
-              <a href="https://www.youtube.com" className="sociallink">
+              <a
+                href="https://www.youtube.com"
+                className="sociallink"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <AiFillYoutube style={{ color: "#f34423" }} />
               </a>
             </Space>
           </Col>
-          <Col lg={6} md={6} sm={12} xs={24} >
+          <Col lg={6} md={6} sm={12} xs={24}>
             <Title level={5} className="footer-title">
               Quick Links
             </Title>
@@ -41,21 +53,21 @@ const Footer = () => {
               <NavLink to="/" className="footer-links">
                 About Us
               </NavLink>
-              <NavLink to="/" className="footer-links">
+              <NavLink to="/events" className="footer-links">
                 News & Events
               </NavLink>
-              <NavLink to="/" className="footer-links">
+              <NavLink to="/gallery" className="footer-links">
                 Gallery
               </NavLink>
-              <NavLink to="/" className="footer-links">
+              <NavLink to="/contact" className="footer-links">
                 Contact Us
               </NavLink>
-              <NavLink to="/" className="footer-links">
+              <NavLink to="/admission" className="footer-links">
                 Admission Form
               </NavLink>
             </Footlist>
           </Col>
-          <Col lg={6} md={6} sm={12} xs={24} >
+          <Col lg={6} md={6} sm={12} xs={24}>
             <Title level={5} className="footer-title">
               Academics
             </Title>
@@ -74,16 +86,28 @@ const Footer = () => {
               </NavLink>
             </Footlist>
           </Col>
-          <Col lg={6} md={6} sm={12} xs={24} >
+          <Col lg={6} md={6} sm={12} xs={24}>
             <Title level={5} className="footer-title">
               Contact Details
             </Title>
             <Footlist>
               <NavLink to="" className="footer-links"></NavLink>
-              <Text className="footer-links">
-                Chuchchepati-7, Chabahil, Kathmandu
-              </Text>
-              <Text className="footer-links">Tel No:- 9801234556</Text>
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Chuchchepati-7,+Chabahil,+Kathmandu"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer-links"
+              >
+                <Text className="footer-links">
+                  Chuchchepati-7, Chabahil, Kathmandu
+                </Text>
+              </a>
+              <a href="tel:+9779801234556">
+                <PhoneFilled
+                  style={{ marginRight: ".5rem", transform: "rotate(90deg)" }}
+                />
+                +977 9801234556
+              </a>
               <Text className="footer-links">
                 <a href="mailto:admin@everest.com">admin@everest.com</a>
               </Text>

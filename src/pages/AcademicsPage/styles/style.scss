@@ -1,0 +1,31 @@
+.computer-science-page {
+    .hero-section {
+      background: linear-gradient(to right, #002f7a, #00509e);
+      color: white;
+      padding: 50px 0;
+      text-align: center;
+  
+      .hero-title {
+        color: white;
+        font-size: 2rem;
+      }
+  
+      .hero-subtitle {
+        color: #dce6f5;
+        font-size: 1rem;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+    }
+  
+    .features-list,
+    .careers-list {
+      padding-left: 20px;
+  
+      li {
+        margin-bottom: 8px;
+        font-size: 1rem;
+      }
+    }
+  }
+  

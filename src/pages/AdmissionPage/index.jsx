@@ -6,7 +6,6 @@ import { Container } from "../../styledGlobal/container";
 import { Admissionbanner, Admissionsection, Wrap } from "./styles/style";
 import "./styles/style.scss";
 import { Link } from "react-router-dom";
-
 const { Title, Paragraph } = Typography;
 
 const AdmissionPage = () => {
@@ -22,7 +21,7 @@ const AdmissionPage = () => {
         <Container>
           <Wrap>
             <Title level={5} className="small-title">
-              Everest school's
+              University of Chicago
             </Title>
             <Title level={4} className="heading">
               Admission Section

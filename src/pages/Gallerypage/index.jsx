@@ -54,7 +54,7 @@ const Gallery = () => {
         <Container>
           <Wrap>
             <Title level={5} className="small-title">
-              Everest school's
+              University of Chicago
             </Title>
             <Title level={4} className="heading">
               Gallery

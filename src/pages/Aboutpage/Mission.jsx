@@ -24,7 +24,7 @@ const Mission = () => {
               Our Mission
             </Title>
             <Title level={4} className="heading">
-              Everest School Mission
+              University of Chicago Mission
             </Title>
           </Wrap>
         </Container>

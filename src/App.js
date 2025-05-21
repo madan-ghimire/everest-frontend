@@ -3,6 +3,8 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import * as ROUTES from "./Routes";
 import ScrollToTop from "./utilities/ScrollTop";
 import "./styledGlobal/sass/style.scss";
+import { Spin } from 'antd'
+// import NotFoundPage from "./components/NotFoundPage";
 
 const Homepage = lazy(() => import("./pages/Homepage"));
 const Contactpage = lazy(() => import("./pages/Contactpage"));
@@ -16,12 +18,27 @@ const Mission = lazy(() => import("./pages/Aboutpage/Mission"));
 const Gallery = lazy(() => import("./pages/Gallerypage"));
 const Admissionform = lazy(() => import("./pages/AdmissionPage/AdmissionForm"));
 
+
+const fallbackSpinner = (
+  <div
+    style={{
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      height: "100vh",
+      width: "100vw",
+    }}
+  >
+    <Spin size="large" />
+  </div>
+);
+
 function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
       <Switch>
-        <Suspense fallback={"loading.."}>
+        <Suspense fallback={fallbackSpinner}>
           <Route path={ROUTES.Homepage} exact component={Homepage} />
           <Route path={ROUTES.Contactpage} component={Contactpage} />
           <Route path={ROUTES.Newspage} component={NewsPage} />
@@ -33,6 +50,10 @@ function App() {
           <Route path={ROUTES.Aboutmission} component={Mission} />
           <Route path={ROUTES.Gallerypage} component={Gallery} />
           <Route path={ROUTES.Admissionform} component={Admissionform} />
+
+          
+          {/* <Route path="*" component={NotFoundPage} /> */}
+
         </Suspense>
       </Switch>
     </BrowserRouter>

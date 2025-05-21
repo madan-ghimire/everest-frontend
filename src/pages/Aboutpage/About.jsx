@@ -32,7 +32,7 @@ const About = () => {
       <Container>
         <Row style={{ width: "100%" }} gutter={[20, 20]}>
           <Col lg={8}>
-            <Title className="headin">Everest School</Title>
+            <Title className="headin">University of Chicago</Title>
           </Col>
           <Col lg={8}>
             <Paragraph className="paragraph">

@@ -71,7 +71,7 @@ const CoursePage = ({ match }) => {
               <Title level={4} className="title">
                 {coursedata.title}
               </Title>
-              <Title className="text">Level : High school</Title>
+              <Title className="text">Top ranked University</Title>
 
               <Title className="text">
                 <ClockCircleOutlined style={{ marginRight: ".4rem" }} />

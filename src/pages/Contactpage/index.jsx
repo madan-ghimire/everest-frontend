@@ -1,5 +1,14 @@
 import React from "react";
-import { Space, Typography, Form, Input, Row, Col, Button } from "antd";
+import {
+  Space,
+  Typography,
+  Form,
+  Input,
+  Row,
+  Col,
+  Button,
+  message,
+} from "antd";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import { Contact, ContactBg, Contactsection, Ctasection } from "./styles/style";
@@ -11,6 +20,36 @@ const { Title, Text } = Typography;
 const { TextArea } = Input;
 
 const Contactpage = () => {
+  const [form] = Form.useForm();
+
+  const onFinish = (values) => {
+    console.log("Form values:", values);
+    message.success("Your message has been sent successfully!");
+    form.resetFields();
+  };
+
+  const onFinishFailed = (errorInfo) => {
+    console.log("Form validation failed:", errorInfo);
+    message.error("Please check the form and try again.");
+  };
+
+  // Custom validators
+  const validateEmail = (_, value) => {
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    if (!value || emailRegex.test(value)) {
+      return Promise.resolve();
+    }
+    return Promise.reject("Please enter a valid email address!");
+  };
+
+  const validatePhone = (_, value) => {
+    const phoneRegex = /^[0-9\-\+\(\)\s]{7,15}$/;
+    if (!value || phoneRegex.test(value)) {
+      return Promise.resolve();
+    }
+    return Promise.reject("Please enter a valid phone number!");
+  };
+
   return (
     <Contact>
       <Navbar />
@@ -28,30 +67,32 @@ const Contactpage = () => {
         </Text>
       </ContactBg>
       <Contactsection>
-        <Row
-          className="contact-box"
-          // style={{
-          //   background: "#fff",
-          //   width: "60%",
-          //   boxShadow: "0px 4px 9px 0px #c8c8c854",
-          //   borderRadius: ".3rem",
-          //   overflow: "hidden",
-          // }}
-        >
-          <Form layout="vertical">
+        <Row className="contact-box">
+          <Form
+            form={form}
+            layout="vertical"
+            onFinish={onFinish}
+            onFinishFailed={onFinishFailed}
+            className="contact-form"
+            style={{
+              boxShadow: "none",
+              background: "transparent",
+              width: "100%",
+            }}
+          >
             <Title
               level={4}
               style={{
                 fontSize: "1.5rem",
                 fontWeight: "500",
                 color: "#000",
-                marginBottom: "1rem",
+                marginBottom: "1.5rem",
               }}
             >
               Contact Form
             </Title>
 
-            <Row gutter={[10]} style={{ width: "100%" }}>
+            <Row gutter={[16, 0]} style={{ width: "100%" }}>
               <Col lg={12} md={24} xs={24}>
                 <Form.Item
                   label="Full Name"
@@ -59,7 +100,11 @@ const Contactpage = () => {
                   rules={[
                     {
                       required: true,
-                      message: "Please input your username!",
+                      message: "Please enter your full name",
+                    },
+                    {
+                      min: 3,
+                      message: "Name must be at least 3 characters",
                     },
                   ]}
                 >
@@ -73,7 +118,10 @@ const Contactpage = () => {
                   rules={[
                     {
                       required: true,
-                      message: "Please input your email!",
+                      message: "Please enter your email address",
+                    },
+                    {
+                      validator: validateEmail,
                     },
                   ]}
                 >
@@ -81,7 +129,7 @@ const Contactpage = () => {
                 </Form.Item>
               </Col>
             </Row>
-            <Row gutter={[10]} style={{ width: "100%" }}>
+            <Row gutter={[16, 0]} style={{ width: "100%" }}>
               <Col lg={12} md={24} xs={24}>
                 <Form.Item
                   label="Subject"
@@ -89,7 +137,11 @@ const Contactpage = () => {
                   rules={[
                     {
                       required: true,
-                      message: "Please input your subject!",
+                      message: "Please enter a subject",
+                    },
+                    {
+                      min: 5,
+                      message: "Subject must be at least 5 characters",
                     },
                   ]}
                 >
@@ -103,7 +155,10 @@ const Contactpage = () => {
                   rules={[
                     {
                       required: true,
-                      message: "Please input your phone!",
+                      message: "Please enter your phone number",
+                    },
+                    {
+                      validator: validatePhone,
                     },
                   ]}
                 >
@@ -117,19 +172,29 @@ const Contactpage = () => {
               rules={[
                 {
                   required: true,
-                  message: "Please input your message!",
+                  message: "Please enter your message",
+                },
+                {
+                  min: 20,
+                  message: "Message should be at least 20 characters",
                 },
               ]}
             >
-              <TextArea rows={6} placeholder="Enter Your Message" />
+              <TextArea
+                rows={6}
+                placeholder="Enter Your Message"
+                style={{ resize: "none" }}
+              />
             </Form.Item>
             <Form.Item>
               <Button
                 type="primary"
+                htmlType="submit"
                 className="contact-btn"
                 icon={<SendOutlined />}
+                size="large"
               >
-                Send Message{" "}
+                Send Message
               </Button>
             </Form.Item>
           </Form>

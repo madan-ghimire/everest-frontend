@@ -40,12 +40,19 @@ const slideshow = [
   },
 ];
 
+const carouselSettings = {
+  autoplay: true,
+  speed: 5000,
+  effect: "fade",
+  dots: false,
+  pauseOnHover: true,
+};
 const Homepage = () => {
   return (
     <Home>
       <Navbar />
       <Slider>
-        <Carousel effect="fade" autoplay>
+        <Carousel {...carouselSettings}>
           {slideshow.map((item) => (
             <Slide key={item.id}>
               <img
@@ -67,10 +74,10 @@ const Homepage = () => {
           <Row style={{ zIndex: "2" }}>
             <Col lg={8}>
               <Title level={5} className="small-title">
-                Everest School
+                University of Chicago
               </Title>
               <Title level={4} className="heading">
-                About Our School
+                About Our University
               </Title>
             </Col>
             <Col lg={16}>
@@ -134,7 +141,7 @@ const Homepage = () => {
                   Apply Now
                 </Title>
                 <Title level={4} className="heading">
-                  Admission Open for Everest School
+                  Admission Open for University of Chicago
                 </Title>
                 <Paragraph ellipsis={{ rows: 3 }} className="small-paragraph">
                   We are one of the largest, most diverse universities in the

@@ -1,6 +1,23 @@
-import { Col, Row, Typography, Button, Menu, Dropdown, Drawer } from "antd";
+import {
+  Col,
+  Row,
+  Typography,
+  Button,
+  Menu,
+  Dropdown,
+  Drawer,
+  Modal,
+  Form,
+  Input,
+} from "antd";
 import React, { useEffect, useState } from "react";
-import { MailOutlined, PhoneFilled, DownOutlined } from "@ant-design/icons";
+import {
+  MailOutlined,
+  PhoneFilled,
+  DownOutlined,
+  UserOutlined,
+  LockOutlined,
+} from "@ant-design/icons";
 import { RiMenu3Fill } from "react-icons/ri";
 import { Container } from "../../styledGlobal/container";
 import { Navigation, NavTop, Nav, Logo, NavList } from "./styles/style";
@@ -12,22 +29,38 @@ const { Text } = Typography;
 const Navbar = () => {
   const [mobileDrawer, setMobileDrawer] = useState(false);
   const [windowWidth, setWindowWidth] = useState("");
+  const [isLoginModalVisible, setIsLoginModalVisible] = useState(false);
 
   useEffect(() => {
     setWindowWidth(window.innerWidth);
     window.addEventListener("resize", updateWindowSize);
-    console.log(windowWidth);
-  }, [windowWidth]);
+    return () => window.removeEventListener("resize", updateWindowSize);
+  }, []);
 
   const updateWindowSize = () => {
     setWindowWidth(window.innerWidth);
   };
+
   const showDrawer = () => {
     setMobileDrawer(true);
   };
 
   const hideDrawer = () => {
     setMobileDrawer(false);
+  };
+
+  const showLoginModal = () => {
+    setIsLoginModalVisible(true);
+  };
+
+  const handleLoginCancel = () => {
+    setIsLoginModalVisible(false);
+  };
+
+  const onFinish = (values) => {
+    console.log("Login form values:", values);
+    // TODO: handle login logic here
+    setIsLoginModalVisible(false);
   };
 
   const aboutMenu = (
@@ -49,16 +82,26 @@ const Navbar = () => {
   const academicsMenu = (
     <Menu>
       <Menu.Item>
-        <NavLink to="/about/college">Management</NavLink>
+        <NavLink to="/academics/management">Management</NavLink>
       </Menu.Item>
       <Menu.Item>
-        <NavLink to="/about/principal">Science</NavLink>
+        <NavLink to="/academics/science">Science</NavLink>
       </Menu.Item>
       <Menu.Item>
-        <NavLink to="/about/chairman">Humanities</NavLink>
+        <NavLink to="/academics/humanities">Humanities</NavLink>
       </Menu.Item>
       <Menu.Item>
-        <NavLink to="/about/mission">Computer Software</NavLink>
+        <NavLink to="/academics/computer-science">Computer Science</NavLink>
+      </Menu.Item>
+      <Menu.Item>
+        <NavLink to="/academics/computer-science">
+          Artificial Intelligence
+        </NavLink>
+      </Menu.Item>
+      <Menu.Item>
+        <NavLink to="/academics/computer-science">
+          Artificial Intelligence
+        </NavLink>
       </Menu.Item>
     </Menu>
   );
@@ -99,28 +142,54 @@ const Navbar = () => {
       <NavTop>
         <Container>
           <Row style={{ width: "100%" }} justify="space-between">
-            <Col className="mobilestyle" >
+            <Col className="mobilestyle">
               <Text
                 style={{
                   color: "#c3d1eb",
                   fontSize: ".9rem",
                   marginRight: "1.5rem",
+                  cursor: "pointer",
                 }}
               >
-                <MailOutlined style={{ marginRight: ".5rem" }} />
-                contact@everestcollege.edu.np
+                <a
+                  href="mailto:contact@everestcollege.edu.np"
+                  style={{
+                    color: "#c3d1eb",
+                    fontSize: ".9rem",
+                    marginRight: "1.5rem",
+                    display: "flex",
+                    alignItems: "center",
+                    textDecoration: "none",
+                  }}
+                >
+                  <MailOutlined style={{ marginRight: ".5rem" }} />
+                  contact@everestcollege.edu.np
+                </a>
               </Text>
               <Text
                 style={{
                   color: "#c3d1eb",
                   fontSize: ".9rem",
                   marginRight: "1.5rem",
+                  cursor: "pointer",
                 }}
               >
-                <PhoneFilled
-                  style={{ marginRight: ".5rem", transform: "rotate(90deg)" }}
-                />
-                +977 9810203445
+                <a
+                  href="tel:+9779810203445"
+                  style={{
+                    color: "#c3d1eb",
+                    fontSize: ".9rem",
+                    marginRight: "1.5rem",
+                    display: "flex",
+                    alignItems: "center",
+                    textDecoration: "none",
+                  }}
+                >
+                  <PhoneFilled
+                    style={{ marginRight: ".5rem", transform: "rotate(90deg)" }}
+                  />
+                  +977 9810203445
+                </a>
               </Text>
             </Col>
             {windowWidth > 767 ? (
@@ -134,7 +203,11 @@ const Navbar = () => {
                 >
                   Portal
                 </Text>
-                <Button type="primary" style={{ fontSize: ".9rem" }}>
+                <Button
+                  type="primary"
+                  style={{ fontSize: ".9rem" }}
+                  onClick={showLoginModal}
+                >
                   Login
                 </Button>
               </Col>
@@ -195,6 +268,50 @@ const Navbar = () => {
           )}
         </Container>
       </Nav>
+
+      <Modal
+        title="Login"
+        visible={isLoginModalVisible}
+        onCancel={handleLoginCancel}
+        footer={null}
+        maskClosable={false}
+        destroyOnClose
+      >
+        <Form
+          name="loginForm"
+          initialValues={{ remember: true }}
+          onFinish={onFinish}
+          layout="vertical"
+          style={{ width: "100%" }}
+        >
+          <Form.Item
+            label="Username or Email"
+            name="username"
+            rules={[
+              {
+                required: true,
+                message: "Please input your username or email!",
+              },
+            ]}
+          >
+            <Input prefix={<UserOutlined />} placeholder="Username or Email" />
+          </Form.Item>
+
+          <Form.Item
+            label="Password"
+            name="password"
+            rules={[{ required: true, message: "Please input your password!" }]}
+          >
+            <Input.Password prefix={<LockOutlined />} placeholder="Password" />
+          </Form.Item>
+
+          <Form.Item>
+            <Button type="primary" htmlType="submit" block>
+              Log in
+            </Button>
+          </Form.Item>
+        </Form>
+      </Modal>
     </Navigation>
   );
 };
