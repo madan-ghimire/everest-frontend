@@ -148,7 +148,7 @@ const Homepage = () => {
                   USA with over 90,000 students in USA, and a further 30,000
                   studying across 180 countries for Kingster University.
                 </Paragraph>
-                <NavLink to="/admission-form">
+                <NavLink to="/admission">
                   <Button type="primary" className="primary">
                     Apply Now
                   </Button>
